@@ -73,40 +73,26 @@ header h1 {
     font-weight: 500;
 }
 
-/* Estilo dos Botões */
+/* --- ESTILO DOS BOTÕES PADRONIZADO (ATUALIZADO) --- */
 .btn {
-    display: block; /* Ocupa a largura toda */
+    display: block;
     width: 100%;
     padding: 16px 20px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
     border-radius: 8px;
-    border: 2px solid transparent;
     transition: all 0.3s ease;
     cursor: pointer;
-    text-transform: capitalize; /* "Gerar Solicitação..." - Mais legível que tudo maiúsculo */
-}
-
-.btn-primary {
-    background-color: var(--ifro-green);
-    color: var(--white);
-}
-
-.btn-primary:hover {
-    background-color: var(--ifro-green-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Botão secundário, para contraste futuro */
-.btn-secondary {
+    text-transform: capitalize;
+    /* Estilo padrão (vazado) */
     background-color: var(--white);
     color: var(--ifro-green);
-    border-color: var(--ifro-green);
+    border: 2px solid var(--ifro-green);
 }
 
-.btn-secondary:hover {
+.btn:hover {
+    /* Efeito ao passar o mouse (preenchido) */
     background-color: var(--ifro-green);
     color: var(--white);
     transform: translateY(-3px);

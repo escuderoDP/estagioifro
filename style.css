@@ -1,0 +1,148 @@
+/* Importação da fonte e reset de estilos */
+:root {
+    --ifro-green: #006633;
+    --ifro-green-dark: #004c26;
+    --ifro-red: #d32f2f;
+    --dark-text: #333333;
+    --gray-text: #6c757d;
+    --background-color: #f8f9fa;
+    --white: #ffffff;
+    --border-color: #dddddd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Container Principal */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Cabeçalho */
+header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/* Contêiner das Ações */
+.actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaçamento entre os blocos de botões */
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Estilo dos Botões */
+.btn {
+    display: block; /* Ocupa a largura toda */
+    width: 100%;
+    padding: 16px 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: capitalize; /* "Gerar Solicitação..." - Mais legível que tudo maiúsculo */
+}
+
+.btn-primary {
+    background-color: var(--ifro-green);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--ifro-green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão secundário, para contraste futuro */
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--ifro-green);
+    border-color: var(--ifro-green);
+}
+
+.btn-secondary:hover {
+    background-color: var(--ifro-green);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Rodapé */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--gray-text);
+}
+
+
+/* --- Design Responsivo --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        max-width: 220px;
+    }
+
+    .btn {
+        padding: 14px 15px;
+        font-size: 1rem;
+    }
+}

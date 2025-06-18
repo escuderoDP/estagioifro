@@ -2,14 +2,13 @@
 :root {
     --ifro-green: #006633;
     --ifro-green-dark: #004c26;
-    --ifro-red: #d32f2f;
+    --ifro-red: #c9302c; /* Um vermelho para alertas */
     --dark-text: #333333;
     --gray-text: #6c757d;
     --background-color: #f8f9fa;
     --white: #ffffff;
     --border-color: #e0e0e0;
 
-    /* --- NOVAS CORES PARA O DEGRADÊ --- */
     --gradient-start-light-green: #e8f5e9;
     --gradient-end-light-gray: #fdfdfd;
 }
@@ -28,7 +27,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--dark-text);
-    padding: 20px 0;
+    padding: 40px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,37 +64,31 @@ header h1 {
 }
 
 
-/* --- ESTILOS ATUALIZADOS E NOVOS --- */
+/* --- SEÇÕES E AVISOS --- */
 
-/* Container de cada seção de conteúdo (AGORA COM DEGRADÊ) */
 .content-section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 30px; /* Adiciona espaçamento interno */
-    border-radius: 10px; /* Bordas arredondadas para o card */
+    gap: 25px;
+    padding: 30px;
+    border-radius: 10px;
     background-image: linear-gradient(to bottom, var(--gradient-start-light-green), var(--gradient-end-light-gray));
 }
 
-/* Título de cada seção (H2) */
 .section-title {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--ifro-green);
-    margin-bottom: 10px; /* Reduzido um pouco o espaçamento */
+    margin-bottom: 10px;
     text-align: center;
 }
 
-/* Divisor de seção (HR) - Separa os dois cards */
 .section-divider {
     border: none;
     height: 1px;
-    background-color: transparent; /* O divisor agora é apenas espaço */
-    margin: 15px 0; /* Apenas um pequeno espaçamento vertical */
+    background-color: transparent;
+    margin: 20px 0;
 }
-
-/* --- FIM DOS ESTILOS ATUALIZADOS --- */
-
 
 .step-label {
     font-size: 0.9rem;
@@ -106,13 +99,30 @@ header h1 {
     text-align: center;
 }
 
-/* Estilo dos Botões (TEXTO MAIÚSCULO) */
+.step-warning {
+    text-transform: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--ifro-red);
+    padding: 12px;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    background-color: #f8d7da;
+    margin-bottom: 15px;
+}
+
+/* Removido: .step-contact-info, pois não é mais necessário */
+
+
+/* --- BOTÕES --- */
+
+/* Estilo Base para todos os botões */
 .btn {
-    display: block;
     width: 100%;
-    padding: 16px 20px;
+    padding: 16px; /* Padding vertical um pouco menor no padrão */
     text-decoration: none;
-    font-size: 1.1rem;
     font-weight: 500;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -121,14 +131,51 @@ header h1 {
     background-color: var(--white);
     color: var(--ifro-green);
     border: 2px solid var(--ifro-green);
-    text-transform: uppercase; /* ATUALIZADO */
+    text-transform: uppercase;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 }
+
+/* Estilo para Botões de linha única */
+.btn:not(.btn-contact) {
+    font-size: 1.1rem;
+}
+
+/* NOVO: Estilo específico para os botões de contato de duas linhas */
+.btn-contact {
+    flex-direction: column; /* Coloca os itens um sobre o outro */
+    gap: 8px; /* Espaço entre a linha de cima e a legenda */
+    padding: 18px 16px; /* Um pouco mais de padding vertical */
+}
+
+.btn-contact > span { /* O texto principal do botão de contato */
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* NOVO: Estilo para a legenda dentro do botão */
+.btn-legend {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: none; /* Garante que e-mail/telefone não fiquem maiúsculos */
+    opacity: 0.9;
+}
+
 
 .btn:hover {
     background-color: var(--ifro-green);
     color: var(--white);
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn .fa-brands, .btn .fa-solid {
+    font-size: 1.2rem;
 }
 
 /* Rodapé */
@@ -144,28 +191,14 @@ footer {
 
 /* --- Design Responsivo --- */
 @media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
-
-    .content-section {
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
-    }
-
-    .logo {
-        max-width: 220px;
-    }
-
-    .btn {
-        padding: 14px 15px;
-        font-size: 1rem;
-    }
+    body { padding: 20px 0; }
+    .container { padding: 15px; }
+    .content-section { padding: 20px; }
+    header h1 { font-size: 1.8rem; }
+    .section-title { font-size: 1.3rem; }
+    .logo { max-width: 220px; }
+    .btn:not(.btn-contact) { padding: 14px; font-size: 1rem; }
+    .btn-contact { padding: 16px; }
+    .btn-contact > span { font-size: 1rem; }
+    .btn-legend { font-size: 0.8rem; }
 }

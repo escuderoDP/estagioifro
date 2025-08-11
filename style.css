@@ -113,15 +113,12 @@ header h1 {
     margin-bottom: 15px;
 }
 
-/* Removido: .step-contact-info, pois não é mais necessário */
-
-
 /* --- BOTÕES --- */
 
 /* Estilo Base para todos os botões */
 .btn {
     width: 100%;
-    padding: 16px; /* Padding vertical um pouco menor no padrão */
+    padding: 16px;
     text-decoration: none;
     font-weight: 500;
     border-radius: 8px;
@@ -140,30 +137,31 @@ header h1 {
 }
 
 /* Estilo para Botões de linha única */
-.btn:not(.btn-contact) {
+.btn:not(.btn-contact):not(.btn-split) {
     font-size: 1.1rem;
 }
 
-/* NOVO: Estilo específico para os botões de contato de duas linhas */
-.btn-contact {
-    flex-direction: column; /* Coloca os itens um sobre o outro */
-    gap: 8px; /* Espaço entre a linha de cima e a legenda */
-    padding: 18px 16px; /* Um pouco mais de padding vertical */
+/* Estilo para botões com duas linhas (contato e estágio) */
+.btn-contact, .btn-split {
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 16px;
 }
 
-.btn-contact > span { /* O texto principal do botão de contato */
+.btn-contact > span, .btn-split > span {
     font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* NOVO: Estilo para a legenda dentro do botão */
+/* Estilo para a legenda dentro dos botões */
 .btn-legend {
     font-size: 0.9rem;
     font-weight: 400;
-    text-transform: none; /* Garante que e-mail/telefone não fiquem maiúsculos */
+    text-transform: none;
     opacity: 0.9;
+    line-height: 1.4; /* Melhora a leitura da legenda */
 }
 
 
@@ -177,6 +175,27 @@ header h1 {
 .btn .fa-brands, .btn .fa-solid {
     font-size: 1.2rem;
 }
+
+/* Grupo de botões lado a lado */
+.button-group {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os botões */
+    align-items: stretch; /* Garante que os botões tenham a mesma altura */
+}
+
+/* Botões divididos agora usam o estilo comum de duas linhas */
+.btn-split {
+    flex: 1; /* Faz com que ambos os botões ocupem o mesmo espaço */
+}
+
+.btn-split > span {
+    font-size: 1rem; /* Ajuste fino do tamanho da fonte */
+}
+
+.btn-split .btn-legend {
+    font-size: 0.8rem; /* Legenda um pouco menor para ser mais discreta */
+}
+
 
 /* Rodapé */
 footer {
@@ -197,8 +216,21 @@ footer {
     header h1 { font-size: 1.8rem; }
     .section-title { font-size: 1.3rem; }
     .logo { max-width: 220px; }
-    .btn:not(.btn-contact) { padding: 14px; font-size: 1rem; }
-    .btn-contact { padding: 16px; }
-    .btn-contact > span { font-size: 1rem; }
-    .btn-legend { font-size: 0.8rem; }
+    .btn:not(.btn-contact):not(.btn-split) { padding: 14px; font-size: 1rem; }
+    
+    .btn-contact, .btn-split {
+        padding: 16px;
+    }
+    .btn-contact > span, .btn-split > span {
+        font-size: 1rem;
+    }
+    .btn-legend {
+        font-size: 0.8rem;
+    }
+
+    /* Empilha os botões em telas pequenas para melhor leitura */
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
